@@ -24,8 +24,8 @@ stratum_cc_library(
     deps = [
         ":bf_cc_proto",
         ":bf_chassis_manager",
-        ":bf_sde_interface",
         ":bf_pipeline_utils",
+        ":bf_sde_interface",
         "//stratum/glue:integral_types",
         "//stratum/glue:logging",
         "//stratum/glue/gtl:map_util",
@@ -45,6 +45,7 @@ stratum_cc_library(
     name = "bf_chassis_manager",
     srcs = ["bf_chassis_manager.cc"],
     hdrs = ["bf_chassis_manager.h"],
+    copts = ["-Wno-thread-safety-analysis"],  # TODO(antonin)
     deps = [
         ":bf_sde_interface",
         "//stratum/glue:integral_types",
